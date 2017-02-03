@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy       #ログアウト処理
-    session[:user_id] = nil　　     #セッション破棄
+  def destroy     
+    session[:user_id] = nil
     redirect_to root_path
   end
 end
@@ -25,4 +25,3 @@ end
 
 #params[:session]部分にloginフォームに入力したパラメータが入っている
 #1行目で入力emailを元にユーザーを検索 2行目でパスワードが一致しているかを確認
-#
