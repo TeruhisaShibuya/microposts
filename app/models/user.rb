@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
     has_secure_password
+    has_many :microposts   #1対多の関係 userから見たらマイクロソフトは無数にある
 end

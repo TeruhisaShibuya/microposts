@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy       #ログアウト処理
-    session[:user_id] = nil　　     #セッション破棄
+  def destroy    #ログアウト処理
+    session[:user_id] = nil    #セッション破棄
     redirect_to root_path
   end
 end
