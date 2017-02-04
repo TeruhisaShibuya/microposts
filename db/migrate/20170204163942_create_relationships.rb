@@ -10,3 +10,7 @@ class CreateRelationships < ActiveRecord::Migration
     end
   end
 end
+
+
+#フォローIDとアンフォローIDの組み合わせのrelationshipモデルの値は同じ物があってはならない unique
+#同じのがあったりすると削除が大変
