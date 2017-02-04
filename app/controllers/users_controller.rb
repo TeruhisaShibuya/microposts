@@ -18,7 +18,16 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+  
+  def followings  #フォローしているユーザーの一覧メソッド
     
+  end
+  
+  def followers  #フォローされているユーザーの一覧表示メソッド
+    
+  end
+  
+  
     private  #praivate以下はストロングパラメーター セキュリティ向上
     
     def user_params
