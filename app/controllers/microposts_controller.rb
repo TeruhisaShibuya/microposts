@@ -1,5 +1,5 @@
 class MicropostsController < ApplicationController
-    before_action :logged_in_user, only: [:create, :destroy]  #アクション前にapplication controllerのloggedinメソッドを実行 クリエイトの時だけね
+    before_action :logged_in_user, only: [:create]  #アクション前にapplication controllerのloggedinメソッドを実行 クリエイトの時だけね
     
     def create
       @micropost = current_user.microposts.build(microposts_params)  #常に後ろから読むイメージ 
@@ -7,6 +7,7 @@ class MicropostsController < ApplicationController
       flash[:success] = "Micropost created!"                         #現在のユーザーに紐付け
       redirect_to root_url                                           #インスタンス変数へ入れる
       else
+       @feed_items = current.feed_items.includes(:user).order(created_at: :desc)
        render 'static_pages/home'
       end
     end

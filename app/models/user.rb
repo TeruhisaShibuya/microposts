@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
     following_relationships.find_or_create_by(followed_id: other_user.id)
   end
 
+  def feed_items    #フォロワー達とと自分のIDを user_idの引数に
+    Micropost.where(user_id: following_user_ids + [self.id])   
+  end
+
+
 
   # フォローしているユーザーをアンフォロー  リレイションシップからフォローidを探す。フォローしているならする関係を破壊する
   def unfollow(other_user)
