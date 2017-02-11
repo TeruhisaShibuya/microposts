@@ -1,6 +1,0 @@
-<% if current_user_logged_in?  %>
-  <%= @user(current_user.following_relationships).each do |f|  %>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-  
-  <% end %>

@@ -1,3 +1,4 @@
+    <!--Profile画面-->
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -6,12 +7,15 @@
         <%= @user.name %>
       </h1>
     </section>
+      <section>
+      <%= render 'shared/stats' %>
+      </section>
   </aside>
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %> <!--フォロー用のフォームを搭載 フォローアンフォロー切り替えは２つのレンダーで-->
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
-      <ol class="microposts">
+      <ol class="microposts">           <!--スタイルシートを適用する場合、OOclass = ".OO"かこむ-->
         <%= render @microposts %>
       </ol>
     <% end %>

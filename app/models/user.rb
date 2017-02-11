@@ -9,17 +9,17 @@ class User < ActiveRecord::Base
     has_many :microposts   #1対多の関係 userから見たらマイクロソフトは無数にある
     
     
-#他人のフォローしている人の関係と表示の作成を以下で行う
+#フォローしている人の関係と表示の作成を以下で行う
 
-#他人のフォローしている人の関係は following_relationships とする　　　ここは言葉がややこしくて理解するのが大変〜！！！
+#フォローしている人の関係は following_relationships とする　　　ここは言葉がややこしくて理解するのが大変〜！！！
      has_many :following_relationships, class_name:  "Relationship",
                                      foreign_key: "follower_id",
                                      dependent:   :destroy
-#他人のフォローしているユーザーは following_users とする following_relationships情報を通して取得 ソースは他人の"followed"部分 
+#フォローしているユーザーは following_users とする following_relationships情報を通して取得 ソースは他人の"followed"部分 
   has_many :following_users, through: :following_relationships, source: :followed
   
   
-#他人のフォローされている関係は follower_relationships とする  
+#フォローされている関係は follower_relationships とする  
     has_many :follower_relationships, class_name:  "Relationship",
                                     foreign_key: "followed_id",
                                     dependent:   :destroy

@@ -1,0 +1,20 @@
+<!--Users画面-->
+
+<dv class="row">
+  <div class ="col-md-4" >
+    <%= gravatar_for(current_user, size:50) %>
+    <%= current_user.name %>
+  </div>
+  <div class ="col-md-8" >
+    <ol class = "users">
+      <%= render @users %>
+    </ol>
+  </div>
+</div>
+ 
+  
+
+
+
+
+     <!---変数userはなんでも良いいかもそれにおうじて変更！！->
