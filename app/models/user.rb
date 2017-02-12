@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  paginates_per 10
      before_save { self.email = self.email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -35,8 +36,7 @@ class User < ActiveRecord::Base
     Micropost.where(user_id: following_user_ids + [self.id])   
   end
 
-
-
+  
   # フォローしているユーザーをアンフォロー  リレイションシップからフォローidを探す。フォローしているならする関係を破壊する
   def unfollow(other_user)
     following_relationship = following_relationships.find_by(followed_id: other_user.id)
